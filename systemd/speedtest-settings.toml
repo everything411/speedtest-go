@@ -1,17 +1,17 @@
-# bind address, use empty string to bind to all interfaces
-bind_address=""
-# backend listen port
-listen_port=8989
+# bind address, use empty string to bind to all interfaces, or when using socket activation
+#bind_address=""
+# backend listen port.  Set this to "" when using socket activation
+listen_port=""
 # proxy protocol port, use 0 to disable
 proxyprotocol_port=0
 # Server location
-server_lat=1
-server_lng=1
+server_lat=50.82589
+server_lng=-0.141391
 # ipinfo.io API key, if applicable
 ipinfo_api_key=""
 
 # assets directory path, defaults to `assets` in the same directory
-assets_path=""
+assets_path="/usr/local/share/speedtest/assets"
 
 # password for logging into statistics page
 statistics_password="PASSWORD"
@@ -20,19 +20,12 @@ redact_ip_addresses=false
 
 # database type for statistics data, currently supports: none, memory, bolt, mysql, postgresql
 # if none is specified, no telemetry/stats will be recorded, and no result PNG will be generated
-database_type="bolt"
+#database_type="bolt"
+database_type="memory"
 database_hostname=""
 database_name=""
 database_username=""
 database_password=""
 
 # if you use `bolt` as database, set database_file to database file location
-database_file="speedtest.db"
-
-# TLS and HTTP/2 settings. TLS is required for HTTP/2
-enable_tls=false
-enable_http2=false
-
-# if you use HTTP/2 or TLS, you need to prepare certificates and private keys
-# tls_cert_file="cert.pem"
-# tls_key_file="privkey.pem"
+database_file="/usr/local/var/speedtest/speedtest.db"
